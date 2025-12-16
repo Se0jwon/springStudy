@@ -39,12 +39,11 @@ public class ApplicationContextBasicFindTest {
 
 
     // 빈 이름이 없을 시 NoSuchBeanDefinitionException으로 -> 으로 오른쪽 코드 실행시 예외처리 기법
-//    @Test
-//    @DisplayName("빈 이름으로 조회 X")
-//    void findBeanByNameX() {
-//        //ac.getBean("xxxxxx", MemberService.class);
-//        MemberService xxxxxx = ac.getBean("xxxxx", MemberService.class);
-//        assertThrows(NoSuchBeanDefinitionException.class,
-//                () -> ac.getBean("xxxxx", MemberService.class));
-//    }
+    @Test
+    @DisplayName("빈 이름으로 조회 X")
+    void findBeanByNameX() {
+        //ac.getBean("xxxxxx", MemberService.class);
+        assertThrows(NoSuchBeanDefinitionException.class,
+                () -> ac.getBean("xxxxx", MemberService.class));
+    }
 }
