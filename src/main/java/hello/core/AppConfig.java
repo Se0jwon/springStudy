@@ -20,16 +20,17 @@ public class AppConfig {
     }
 
     @Bean
-    public MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
-    }
-
-    @Bean
     public OrderService orderService() {
         // 이 부분에서 잘못된 형변환을 제거합니다.
         // 그리고 OrderServiceImpl의 생성자가 DiscountPolicy를 받도록 수정해야 합니다.
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
+
+    @Bean
+    public MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
+
 
     @Bean
     public DiscountPolicy discountPolicy() {
